@@ -9,8 +9,6 @@ import static edu.wpi.first.units.Units.*;
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 
-import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -24,7 +22,6 @@ import frc.robot.subsystems.Roller;
 import frc.robot.subsystems.Shooter;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.swerve.CommandSwerveDrivetrain;
-import frc.robot.Constants.driveConstants;
 
 public class RobotContainer {
     private double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
@@ -68,7 +65,6 @@ public class RobotContainer {
         new JoystickButton(opController, 6)/* R */.whileTrue(new InstantCommand(intake::intakeReverseRotate, intake)).onFalse(new InstantCommand(intake::intakeStop, intake));
         new JoystickButton(opController, 3)/* X, left */.whileTrue(new InstantCommand(roller::rollerRotate, roller)).onFalse(new InstantCommand(roller::rollerStop, roller));
         //new JoystickButton(opController, 2)/* B, right */.whileTrue(new InstantCommand(shooter::shooterRotate, shooter)).onFalse(new InstantCommand(shooter::shooterStop, shooter));
-
 
         // Note that X is defined as forward according to WPILib convention,
         // and Y is defined as to the left according to WPILib convention.
