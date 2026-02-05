@@ -5,17 +5,17 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase {
-    private final TalonFX intakeMotor = new TalonFX(32);
+    private final TalonFX shooterMotor = new TalonFX(32); //change ID
 
-    // public void intakeRotate(){
-    //     intakeMotor.set(0.4);
+    public void shooterRotate(){
+        shooterMotor.set(0.4);          //change ts
+    }
+
+    // public void shooterReverseRotate(){
+    //     shooterMotor.set(-0.4);
     // }
 
-    // public void intakeReverseRotate(){
-    //     intakeMotor.set(-0.4);
-    // }
-
-    // public void intakeStop(){
-    //     intakeMotor.set(0);
-    // }
+    public void shooterStop(){
+        shooterMotor.set(0);
+    }
 }

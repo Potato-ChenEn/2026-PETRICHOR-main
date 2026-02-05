@@ -6,17 +6,17 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Roller extends SubsystemBase {
     
-    private final TalonFX intakeMotor = new TalonFX(32); //change ID
+    private final TalonFX rollerMotor = new TalonFX(32); //change ID
 
-    // public void intakeRotate(){
-    //     intakeMotor.set(0.4);
+    public void rollerRotate(){
+        rollerMotor.set(0.4);      //change
+    }
+
+    // public void rollerReverseRotate(){
+    //     rollerMotor.set(-0.4);
     // }
 
-    // public void intakeReverseRotate(){
-    //     intakeMotor.set(-0.4);
-    // }
-
-    // public void intakeStop(){
-    //     intakeMotor.set(0);
-    // }
+    public void rollerStop(){
+        rollerMotor.set(0);
+    }
 }

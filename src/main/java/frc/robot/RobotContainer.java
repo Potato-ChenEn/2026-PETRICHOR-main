@@ -20,6 +20,8 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Roller;
+import frc.robot.subsystems.Shooter;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.swerve.CommandSwerveDrivetrain;
 import frc.robot.Constants.driveConstants;
@@ -48,6 +50,9 @@ public class RobotContainer {
     public final Intake intake = new Intake();
     // public final autoAlignmentDrive m_aAutoAlignmentDrive = new autoAlignmentDrive.alignDrive(driverCtrl, () -> driveConstants.getHubPose().toPose2d());
 
+    public final Roller roller = new Roller();
+    public final Shooter shooter = new Shooter();
+
     //Command
     // public AutoAlign autoAlign = new AutoAlign(driverCtrl, drivetrain);
 
@@ -59,8 +64,11 @@ public class RobotContainer {
         driverCtrl.a().whileTrue(drivetrain.autoAlignCommand(driverCtrl));
 
         // driverCtrl.b().whileTrue(new InstantCommand(intake::intakeReverseRotate)).onFalse(new InstantCommand(intake::intakeStop, intake));
-        new JoystickButton(opController, 5).whileTrue(new InstantCommand(intake::intakeRotate, intake)).onFalse(new InstantCommand(intake::intakeStop, intake));
-        new JoystickButton(opController, 6).whileTrue(new InstantCommand(intake::intakeReverseRotate, intake)).onFalse(new InstantCommand(intake::intakeStop, intake));
+        new JoystickButton(opController, 5)/* L */.whileTrue(new InstantCommand(intake::intakeRotate, intake)).onFalse(new InstantCommand(intake::intakeStop, intake));
+        new JoystickButton(opController, 6)/* R */.whileTrue(new InstantCommand(intake::intakeReverseRotate, intake)).onFalse(new InstantCommand(intake::intakeStop, intake));
+        new JoystickButton(opController, 3)/* X, left */.whileTrue(new InstantCommand(roller::rollerRotate, roller)).onFalse(new InstantCommand(roller::rollerStop, roller));
+        //new JoystickButton(opController, 2)/* B, right */.whileTrue(new InstantCommand(shooter::shooterRotate, shooter)).onFalse(new InstantCommand(shooter::shooterStop, shooter));
+
 
         // Note that X is defined as forward according to WPILib convention,
         // and Y is defined as to the left according to WPILib convention.
