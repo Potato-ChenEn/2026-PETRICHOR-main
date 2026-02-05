@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase {
     private final TalonFX shooterMotor = new TalonFX(32); //change ID
+    // private final TalonFX shooterMotor = new TalonFX(32); //change ID
+    // private final TalonFX shooterMotor = new TalonFX(32); //change ID
 
     public void shooterRotate(){
         shooterMotor.set(0.4);          //change ts
