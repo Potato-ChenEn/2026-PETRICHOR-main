@@ -8,7 +8,7 @@ import static edu.wpi.first.units.Units.*;
 
 import java.time.InstantSource;
 
-import javax.print.attribute.standard.JobHoldUntil;
+// import javax.print.attribute.standard.JobHoldUntil;
 
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 import com.ctre.phoenix6.swerve.SwerveRequest;
@@ -23,8 +23,9 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.Roller;
+import frc.robot.subsystems.Spindexer;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Spindexer;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.swerve.CommandSwerveDrivetrain;
 
@@ -50,7 +51,7 @@ public class RobotContainer {
 
     //Subsystem
     public final Intake intake = new Intake();
-    public final Roller roller = new Roller();
+    public final Spindexer spindexer = new Spindexer();
     public final Shooter shooter = new Shooter();
     // public final autoAlignmentDrive m_aAutoAlignmentDrive = new autoAlignmentDrive.alignDrive(driverCtrl, () -> driveConstants.getHubPose().toPose2d());
 
