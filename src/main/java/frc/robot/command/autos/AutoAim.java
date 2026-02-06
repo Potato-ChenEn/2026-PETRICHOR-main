@@ -1,4 +1,4 @@
-package frc.robot.commands.autos;
+package frc.robot.command.autos;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
