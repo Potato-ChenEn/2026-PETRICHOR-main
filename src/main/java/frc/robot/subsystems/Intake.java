@@ -1,10 +1,8 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix6.hardware.TalonFX;
-import com.ctre.phoenix6.configs.Slot0Configs;
 
 import com.ctre.phoenix6.configs.Slot0Configs;
-import com.ctre.phoenix6.controls.PositionDutyCycle;
 import com.ctre.phoenix6.controls.VelocityDutyCycle;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -12,7 +10,7 @@ import frc.robot.Constants.IntakeConstants;
 
 public class Intake extends SubsystemBase {
     private final TalonFX intake_Roller = new TalonFX(32);
-    private final TalonFX intake_Deploy = new TalonFX(33);    // id change
+    // private final TalonFX intake_Deploy = new TalonFX(33);    // id change
 
     private final VelocityDutyCycle intakeRequest = new VelocityDutyCycle(0);
 
@@ -29,13 +27,13 @@ public class Intake extends SubsystemBase {
 
     public void intakeRotate(double rps){
         intake_Roller.setControl(intakeRequest.withVelocity(rps));
-        // intakeMotor.set(0.3);
+        //intake_Roller.set(0.3);
     }
 
 
-    // public void intakeReverseRotate(){
-    //     intake_Roller.set(-0.3);
-    // }
+    public void intakeReverseRotate(){
+        intake_Roller.set(-0.3);
+    }
 
     public void intakeStop(){
         intake_Roller.set(0);

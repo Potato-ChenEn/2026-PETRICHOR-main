@@ -44,10 +44,17 @@ public class Constants {
         }
     }
 
-    public static class IntakeConstants {
+    public static class IntakeConstants {           /*          here          */
         public static final double kP = 0.3;
         public static final double kI = 0.0;
         public static final double kD = 0.00514;
+
+    }
+
+    public static class ShooterConstants {          /*        and here        */
+        public static final double kP = 0.5;
+        public static final double kI = 0;
+        public static final double kD = 0;
 
     }
     

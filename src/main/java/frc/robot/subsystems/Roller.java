@@ -2,6 +2,10 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix6.hardware.TalonFX;
 
+// import com.ctre.phoenix6.configs.Slot0Configs;
+// import com.ctre.phoenix6.controls.PositionDutyCycle;
+// import com.ctre.phoenix6.controls.VelocityDutyCycle;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Roller extends SubsystemBase {

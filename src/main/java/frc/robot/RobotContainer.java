@@ -6,6 +6,10 @@ package frc.robot;
 
 import static edu.wpi.first.units.Units.*;
 
+import java.time.InstantSource;
+
+import javax.print.attribute.standard.JobHoldUntil;
+
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 
@@ -14,10 +18,11 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
-import frc.robot.subsystems.IntakeCopy;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Roller;
 import frc.robot.subsystems.Shooter;
 import frc.robot.generated.TunerConstants;
@@ -44,7 +49,7 @@ public class RobotContainer {
     public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
 
     //Subsystem
-    public final IntakeCopy intake = new IntakeCopy();
+    public final Intake intake = new Intake();
     public final Roller roller = new Roller();
     public final Shooter shooter = new Shooter();
     // public final autoAlignmentDrive m_aAutoAlignmentDrive = new autoAlignmentDrive.alignDrive(driverCtrl, () -> driveConstants.getHubPose().toPose2d());
@@ -61,9 +66,10 @@ public class RobotContainer {
         driverCtrl.a().whileTrue(drivetrain.autoAlignCommand(driverCtrl));
 
         // driverCtrl.b().whileTrue(new InstantCommand(intake::intakeReverseRotate)).onFalse(new InstantCommand(intake::intakeStop, intake));
-        new JoystickButton(opController, 5)/* L */.whileTrue(new InstantCommand(intake::intakeRotate, intake)).onFalse(new InstantCommand(intake::intakeStop, intake));
+        new JoystickButton(opController, 5)/* L */.whileTrue(new RunCommand(() -> intake.intakeRotate(50),intake)).onFalse(new InstantCommand(intake::intakeStop, intake));
         new JoystickButton(opController, 6)/* R */.whileTrue(new InstantCommand(intake::intakeReverseRotate, intake)).onFalse(new InstantCommand(intake::intakeStop, intake));
-        
+        new JoystickButton(opController, 2)/* B */.whileTrue(new RunCommand(() -> shooter.shooterRotate(80),shooter)).onFalse(new InstantCommand(shooter::shooterStop,shooter));
+
         // Note that X is defined as forward according to WPILib convention,
         // and Y is defined as to the left according to WPILib convention.
         drivetrain.setDefaultCommand(
