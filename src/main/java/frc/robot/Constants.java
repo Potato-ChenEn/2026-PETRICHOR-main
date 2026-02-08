@@ -59,18 +59,21 @@ public class Constants {
         public static final double MAX_VELOCITY = 200;
 
         public static final double Intake_Out_kP = 0.3;
-        public static final double Intake_Out_kI = 0.0;
-        public static final double Intake_Out_kD = 0.00514;
+        public static final double Intake_Out_kI = 0;
+        public static final double Intake_Out_kD = 0;
 
         public static final double Intake_In_kP = 0.3;
-        public static final double Intake_In_kI = 0.0;
-        public static final double Intake_In_kD = 0.00514;
+        public static final double Intake_In_kI = 0;
+        public static final double Intake_In_kD = 0;
 
         public static final double Intake_Zero = 0; //定位歸零？ig
         public static final double Intake_Out = 3;
         public static final double Intake_In = 0;
 
+    }
 
+    public static class SpindexerConstants {
+        public static final int spindexer_Roller_ID = 34;
     }
 
     public static class ShooterConstants { //這個才是shooter的roller
