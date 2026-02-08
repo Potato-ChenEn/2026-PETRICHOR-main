@@ -84,8 +84,6 @@ public class RobotContainer {
         new JoystickButton(opController, 5)/* L */.whileTrue(new RunCommand(() -> intake.intakeRotate(50),intake)).onFalse(new InstantCommand(intake::intakeStop, intake));
         new JoystickButton(opController, 6)/* R */.whileTrue(new InstantCommand(intake::intakeReverseRotate, intake)).onFalse(new InstantCommand(intake::intakeStop, intake));
         
-        new JoystickButton(opController, 2)/* B */.whileTrue(new RunCommand(() -> shooter.shooterRotate(80),shooter)).onFalse(new InstantCommand(shooter::shooterStop,shooter));
-
         // Note that X is defined as forward according to WPILib convention,
         // and Y is defined as to the left according to WPILib convention.
         drivetrain.setDefaultCommand(
