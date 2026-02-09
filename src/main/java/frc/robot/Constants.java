@@ -52,8 +52,6 @@ public class Constants {
     }
 
     public static class IntakeConstants { //這裏的PID是給ARM用的，不是roller （MotionMagic）
-        public static final int intake_Roller_ID = 32; //idk為什麽ID不在Intake subsystem用 :oldge:
-        public static final int intake_Ctrl_ID = 33;
 
         public static final double MAX_ACCEL = 500;  //這裏要調整
         public static final double MAX_VELOCITY = 200;
@@ -72,11 +70,8 @@ public class Constants {
 
     }
 
-    public static class SpindexerConstants {
-        public static final int spindexer_Roller_ID = 34;
-    }
-
     public static class ShooterConstants { //這個才是shooter的roller
+    
         public static final double Shooter_kP = 0.5;
         public static final double Shooter_kI = 0;
         public static final double Shooter_kD = 0;

@@ -15,8 +15,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.IntakeConstants;
 
 public class Intake extends SubsystemBase {
-    private final TalonFX intake_Roller = new TalonFX(IntakeConstants.intake_Roller_ID, "rio");
-    private final TalonFX intake_Ctrl = new TalonFX(IntakeConstants.intake_Ctrl_ID, "rio");
+    private final TalonFX intake_Roller = new TalonFX(32);
+    private final TalonFX intake_Ctrl = new TalonFX(33);
 
     public Intake() { //PID get 給ARM (intake_Ctrl)做MotionMagic
         var intake_Ctrl_Config = intake_Ctrl.getConfigurator();
