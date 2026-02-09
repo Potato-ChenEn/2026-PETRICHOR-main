@@ -75,7 +75,7 @@ public class Constants {
         public static final double Shooter_kP = 0.5;
         public static final double Shooter_kI = 0;
         public static final double Shooter_kD = 0;
-        public static final double Shooter_kV = 0.05; // Feedforward 前饋
+        public static final double Shooter_kV = 5; // Feedforward 前饋
 
     }
     
