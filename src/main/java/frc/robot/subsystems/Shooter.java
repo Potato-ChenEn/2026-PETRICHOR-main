@@ -23,11 +23,6 @@ import frc.robot.Constants.ShooterConstants;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/* 需要的： 
- * 1.FeedForward (PIDF)
- * 2.Voltage 控制
- */
-
 public class Shooter extends SubsystemBase {
     private final TalonFX shooter_Motor = new TalonFX(35); //主控制馬達
     private final TalonFX shooter_MotorF = new TalonFX(36); //Follow主控制馬達
@@ -58,7 +53,6 @@ public class Shooter extends SubsystemBase {
     }
 
     public double getCurrentRPS(){
-        
         return shooter_Motor.getVelocity().getValueAsDouble();
     }
 
@@ -72,7 +66,6 @@ public class Shooter extends SubsystemBase {
 
     public void shooterStop(){
         shooter_Motor.setControl(neutralOut);
-        // shooter_Motor.set(0);
     }
 
     @Override
